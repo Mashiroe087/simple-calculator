@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="stylesheet.css">
+  <title>Calculator</title>
+</head>
+<body>
+  <div class="calculator-grid">
+    <div class="container">
+       <form action="" name="cal">
+         <input type="text" name="field" id="field" placeholder="0" readonly>
+       </form>
+       <table>
+           <tr class="column">
+               <td><input type="button" id="ac" value="AC" onclick="clean()"></td>
+               <td><input type="button" id="del" value="Del" onclick="back()"></td>
+               <td><input type="button" id="percent" value="%" onclick="insert('%')"></td>
+               <td><input type="button" id="pembagi" value="/" onclick="insert('/')"></td>
+           </tr>
+
+           <tr class="column">
+                <td><input type="button" value="7" onclick="insert(7)"></td>
+                <td><input type="button" value="8" onclick="insert(8)"></td>
+                <td><input type="button" value="9" onclick="insert(9)"></td>
+                <td><input type="button" id="perkalian" value="*" onclick="insert('*')"></td>
+           </tr>
+
+           <tr class="column">
+                <td><input type="button" value="4" onclick="insert(4)"></td>
+                <td><input type="button" value="5" onclick="insert(5)"></td>
+                <td><input type="button" value="6" onclick="insert(6)"></td>
+                <td><input type="button" id="pengurangan" value="-" onclick="insert('-')"></td>
+           </tr>
+
+           <tr class="column">
+                <td><input type="button" value="1" onclick="insert(1)"></td>
+                <td><input type="button" value="2" onclick="insert(2)"></td>
+                <td><input type="button" value="3" onclick="insert(3)"></td>
+                <td><input type="button" id="tambah" value="+" onclick="insert('+')"></td>
+           </tr>
+
+           <tr class="column">
+                <td><input type="button" id="titik" value="." onclick="insert('.')"></td>
+                <td><input type="button" value="0" onclick="insert(0)"></td>
+                <td><input type="button" id="hasil" value="=" onclick="equal()"></td>
+           </tr>
+       </table>
+
+    </div>
+  </div>
+
+  <script>
+
+   function insert(num){
+        cal.field.value = cal.field.value + num
+        console.log(cal.field.value)
+   }
+
+   function equal(){
+        //let result = cal.field.value
+        cal.field.value = eval(cal.field.value)
+   }
+
+   function clean(){ // untuk remove (AC)
+        cal.field.value = ""
+   }
+
+   function back(){ // untuk del
+        cal.field.value = cal.field.value.substring(0, cal.field.value.length -1)
+        // index ke 0 hingga ${length} -1, contoh 0 ke 9
+   }
+</script>
+
+</body>
+</html>
